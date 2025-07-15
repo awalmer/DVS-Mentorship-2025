@@ -1,2 +1,4 @@
-# DVS-Mentorship-2025
-Data Visualization Society (DVS) Mentorship Program, June--September 2025
+# DVS Mentorship 2025
+
+[Working Google Doc](hbree1@jh.edu) 📃
+Mentorship Agreement ✍️
