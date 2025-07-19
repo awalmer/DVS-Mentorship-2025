@@ -52,6 +52,20 @@ const tableSearch = Inputs.search(filtered);
 const tableSearchValue = view(tableSearch);
 ```
 
+```js
+const timeline = Plot.plot({
+  x: {type: "utc"},
+  color: {legend: true},
+  height: 200,
+  marks: [
+    Plot.dotX(filtered, Plot.dodgeY({
+      x: (d) => new Date(d["Dated Published"]), 
+      fill:"Scale"
+    }))
+  ]
+})
+```
+
 <div class="card" style="padding: 0">
   <div style="padding: 1em; display:flex; align-items: center; gap: 5px;">
     ${display(tableSearch)} Format: ${display(formatFilterInput)}
@@ -64,3 +78,4 @@ const tableSearchValue = view(tableSearch);
 }
 ))}
 </div>
+<div>${display(timeline)}</div>
