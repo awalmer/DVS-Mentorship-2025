@@ -30,6 +30,8 @@ const sonifData = d3.csv(getCsvUrl(url), d3.autoType);
 
 console.log(sonifData) // how to check console output in browser (inspect >> console)
 const formats = Array.from(new Set(sonifData.map(m => m.Format))).sort()
+const topics = Array.from(new Set(sonifData.flatMap(m => m["Topic(s)"]?.split(",")))).sort()
+console.log(topics)
 ```
 
 ```js
