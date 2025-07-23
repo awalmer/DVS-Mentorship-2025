@@ -23,21 +23,54 @@ const url = "https://docs.google.com/spreadsheets/d/1RjwKUbyQSDovO5tyEpGOfU_cjLN
 
 // Define data, call function getCsvUrl
 const sonifData = d3.csv(getCsvUrl(url), d3.autoType);
-
-console.log(sonifData) // how to check console output in browser (inspect >> console)
-
 ```
 
 ```js
-// Create search input (for searchable table)
-const tableSearch = Inputs.search(sonifData);
+// put the console log and any operations on the loaded data in a new block to make use of implicit await between code blocks (resolves the promise)
 
+console.log(sonifData) // how to check console output in browser (inspect >> console)
+const formats = Array.from(new Set(sonifData.map(m => m.Format))).sort()
+const topics = Array.from(new Set(sonifData.flatMap(m => m["Topic(s)"]?.split(",")))).sort()
+console.log(topics)
+```
+
+```js
+// Create filter imput
+const formatFilterInput = Inputs.select(["Show All", ...formats]);
+const formatFilterValue = view(formatFilterInput);
+```
+
+```js
+// move filtering to another block so the reactive value of the view function is used in the evaluation of the filter method on the original dataset
+const filtered = sonifData.filter(f => {
+  if (formatFilterValue === "Show All") {
+    return true;
+  } else {
+    return f.Format === formatFilterValue;
+  }
+});
+// Create search input (for searchable table)
+const tableSearch = Inputs.search(filtered);
 const tableSearchValue = view(tableSearch);
 ```
 
+```js
+const timeline = Plot.plot({
+  x: {type: "utc"},
+  color: {legend: true},
+  height: 200,
+  marks: [
+    Plot.dotX(filtered, Plot.dodgeY({
+      x: (d) => new Date(d["Dated Published"]), 
+      fill:"Scale"
+    }))
+  ]
+})
+```
+
 <div class="card" style="padding: 0">
-  <div style="padding: 1em">
-    ${display(tableSearch)}
+  <div style="padding: 1em; display:flex; align-items: center; gap: 5px;">
+    ${display(tableSearch)} Format: ${display(formatFilterInput)}
   </div>
   ${display(Inputs.table(tableSearchValue, {
   format: {
@@ -47,3 +80,4 @@ const tableSearchValue = view(tableSearch);
 }
 ))}
 </div>
+<div>${display(timeline)}</div>
