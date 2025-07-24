@@ -17,3 +17,7 @@ You’re currently reading the main (and only) page of this project, `src/index.
 The `observablehq.config.js` project config file is optional.
 
 The last file, `package.json`, is used to install Observable Framework via npm. It also provides a few useful common commands such as building and deploying.
+
+------
+
+Aura's thoughts: I imagine having a simple data app / Observable framework where each page showcases a simple data visualization example. I want to be able to link to this app as a mini data viz portfolio. 
