@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="script.js"></script>
     <style>
-        foreignObject {
+        foreignObject, g.swatch {
             pointer-events: none;
         }
         div.labelText {
@@ -21,10 +21,18 @@
             visibility: hidden;
             text-align: center;
         }
+        div.labelText p, g.swatch text {
+            margin: 0;
+            font-size: 14px;
+        }
+        div.labelText p.title {
+            font-weight: 700;
+        }
     </style>
 </head>
 <body>
     <h2><span id="author"></span></h2>
+    <div id="details"></div>
     <!-- add a div with an id you can use to make a d3 selection
         bind to data and populate with a visualization
      -->
