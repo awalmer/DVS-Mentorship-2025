@@ -16,6 +16,7 @@ theme: deep-space
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.3/p5.js"></script>
     <script src="libraries/p5.min.js"></script>
     <script src="./components/p5-test.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quattrocento&display=swap" rel="stylesheet">
 </head>
 
 <!-- condensed -->
@@ -27,8 +28,8 @@ theme: deep-space
 
 <div class="card" style="max-width: 908px;">
   <svg id="Artboard_8:_SVG_test" data-name="Artboard 8: SVG test" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1339.53 465.76">
-    <circle id="circle-1" cx="340.48" cy="232.88" r="64.64" style="fill: #ffc552; stroke-width: 0px;"/>
-    <circle id="circle-2" cx="669.76" cy="232.88" r="64.64" style="fill: #b14dff; stroke-width: 0px;"/>
+    <circle id="circle-1" class="tooltip-circle" cx="340.48" cy="232.88" r="64.64" style="fill: #ffc552; stroke-width: 0px;" data-tooltip="Title Line \n This is the first line.\nThis is the second line."/>
+    <circle id="circle-2" class="tooltip-circle" data-tooltip="I am Circle 2!" cx="669.76" cy="232.88" r="64.64" style="fill: #b14dff; stroke-width: 0px;"/>
     <circle id="circle-3" cx="999.04" cy="232.88" r="64.64" style="fill: #53efe3; stroke-width: 0px;"/>
     <text transform="translate(122.38 129.59)" style="fill: #f9f7f9; font-family: BodoniSvtyTwoOSITCTT-Bold, &apos;Bodoni 72 Oldstyle&apos;; font-size: 35px; font-weight: 700;"><tspan x="0" y="0">Here is a dot.</tspan></text>
     <text transform="translate(453.61 374.24)" style="fill: #f9f7f9; font-family: BodoniSvtyTwoOSITCTT-Bold, &apos;Bodoni 72 Oldstyle&apos;; font-size: 35px; font-weight: 700;"><tspan x="0" y="0">Here is another.</tspan></text>
@@ -52,7 +53,10 @@ theme: deep-space
       </g>
     </g>
   </svg>
+
 </div>
+
+<script src="./components/hover-test.js"></script>
 
 ---
 <h2>Testing embedding SVGs</h2>
@@ -116,6 +120,9 @@ const gain = view(Inputs.range([0, 11], {value: 5, step: 0.1, label: "Gain"}));
 
 <style>
 
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento&display=swap');
+
+
 .hero {
   display: flex;
   flex-direction: column;
@@ -165,10 +172,36 @@ const gain = view(Inputs.range([0, 11], {value: 5, step: 0.1, label: "Gain"}));
 }
 
 
-canvas {
-  display: block;
-  width: 100% !important;
-  height:  auto !important;
+
+#dialog {
+  position: absolute;
+  background: #2f2f2f;         /* dark grey background */
+  border: 1px solid #000;      /* thin black border */
+  padding: 6px 10px;           /* reduced padding */
+  display: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  pointer-events: none;
+  font-family: "Myriad Variable Concept", sans-serif;
+  font-size: 14px;
+  white-space: normal;
+  width: 220px;
+  z-index: 1000;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #f0f0f0;              /* off-white text */
 }
+
+.dialog-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+  font-size: 15px;
+  color: #f0f0f0;
+}
+
+.dialog-body {
+  line-height: 1.2;
+  color: #f0f0f0;
+}
+
 
 </style>
