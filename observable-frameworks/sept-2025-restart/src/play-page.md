@@ -28,7 +28,7 @@ theme: deep-space
 
 <div class="card" style="max-width: 908px;">
   <svg id="Artboard_8:_SVG_test" data-name="Artboard 8: SVG test" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1339.53 465.76">
-    <circle id="circle-1" class="tooltip-circle" cx="340.48" cy="232.88" r="64.64" style="fill: #ffc552; stroke-width: 0px;" data-tooltip="Title Line \n This is the first line.\nThis is the second line."/>
+    <circle id="circle-1" class="tooltip-circle" cx="340.48" cy="232.88" r="64.64" style="fill: #ffc552; stroke-width: 0px;" data-tooltip="Zulus \n <b>🏆 Winner:</b> New American Writing Award \nThis is the second line."/>
     <circle id="circle-2" class="tooltip-circle" data-tooltip="I am Circle 2!" cx="669.76" cy="232.88" r="64.64" style="fill: #b14dff; stroke-width: 0px;"/>
     <circle id="circle-3" cx="999.04" cy="232.88" r="64.64" style="fill: #53efe3; stroke-width: 0px;"/>
     <text transform="translate(122.38 129.59)" style="fill: #f9f7f9; font-family: BodoniSvtyTwoOSITCTT-Bold, &apos;Bodoni 72 Oldstyle&apos;; font-size: 35px; font-weight: 700;"><tspan x="0" y="0">Here is a dot.</tspan></text>
