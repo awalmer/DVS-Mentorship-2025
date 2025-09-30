@@ -23,7 +23,7 @@ header: "Tools: Adobe Illustrator, Observable, HTML, CSS, JavaScript"
 
 <div class="card" style="max-width: 80%; background-color: #232323; margin: 0; padding: 0;">
     <svg id="Artboard7:_Take_4" data-name="Artboard7: Take 4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2600 2600">
-        <clipPath id="clippath-1">
+      <clipPath id="clippath-1">
       <circle class="cls-5" cx="1300" cy="1374" r="161.63"/>
             </clipPath>
             <pattern id="_10_lpi_30_2" data-name="10 lpi 30% 2" x="0" y="0" width="72" height="72" patternTransform="translate(4801.5 -306.03)" patternUnits="userSpaceOnUse" viewBox="0 0 72 72">
@@ -547,7 +547,7 @@ header: "Tools: Adobe Illustrator, Observable, HTML, CSS, JavaScript"
             <line class="cls-34" x1="1161.55" y1="1544.97" x2="1300" y2="1374"/>
             </g>
             <g id="Nodes">
-            <circle id="c-1983" class="cls-31" cx="538.42" cy="612.41" r="36"/>
+            <circle id="c-1983" class="cls-31 tooltip-circle" cx="538.42" cy="612.41" r="36" data-tooltip="Suder (1983)"/>
             <circle id="c-1984" class="cls-6" cx="921.29" cy="387.42" r="36"/>
             <circle id="c-1985" class="cls-31" cx="1354.28" cy="338.22" r="36"/>
             <circle id="c-1986" class="cls-31" cx="1761.84" cy="467.6" r="36"/>
@@ -858,6 +858,7 @@ header: "Tools: Adobe Illustrator, Observable, HTML, CSS, JavaScript"
         </g>
     </svg>
 
+
  <!-- Image overlay -->
   <img src="./images/james-book-cover-circle-26ksq.png"
          alt="Overlay"
@@ -873,6 +874,8 @@ header: "Tools: Adobe Illustrator, Observable, HTML, CSS, JavaScript"
 </div>
 
 
+ <!-- Import hover script -->
+<script src="./components/hover-test.js"></script>
 
 
 <!-- SVG style -->
@@ -881,10 +884,45 @@ header: "Tools: Adobe Illustrator, Observable, HTML, CSS, JavaScript"
     @import url('https://fonts.googleapis.com/css?family=Quattrocento');
     @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap');
 
+/* Keep header in place */
 #observablehq-header {
   position: absolute;
 }
 
+/* Hover styling */
+    #dialog {
+      position: absolute;
+      background: #2f2f2f;         /* dark grey background */
+      border: 1px solid #000;      /* thin black border */
+      padding: 6px 10px;           /* reduced padding */
+      display: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      pointer-events: none;
+      font-family: "Myriad Variable Concept", sans-serif;
+      font-size: 14px;
+      white-space: normal;
+      max-width: 220px;   /* if text exceeds 220px, wrap! */
+      min-width: "fit-content"; /* if only title or short text, fit dialog to text */
+      z-index: 1000;
+      border-radius: 5px;
+      box-sizing: border-box;
+      color: #f0f0f0;              /* off-white text */
+    }
+
+    .dialog-title {
+      font-weight: bold;
+      margin-bottom: 4px;
+      font-size: 15px;
+      color: #f0f0f0;
+    }
+
+    .dialog-body {
+      line-height: 1.2;
+      color: #f0f0f0;
+    }
+
+
+/* Adobe Illustrator Export */
     .cls-1 {
         letter-spacing: -.01em;
       }
